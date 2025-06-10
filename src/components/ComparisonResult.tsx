@@ -37,9 +37,9 @@ const ComparisonResult = ({ isMatch, bothValid, leftLength, rightLength }: Compa
         icon: <Check className="text-emerald-400" size={32} />,
         title: "Perfect Match! ✨",
         subtitle: "Both connection strings are identical and valid",
-        bgColor: "bg-emerald-500/10",
-        borderColor: "border-emerald-400",
-        shadowColor: "shadow-emerald-400/25"
+        bgColor: "bg-emerald-500",
+        borderColor: "",
+        shadowColor: "shadow-emerald-400/50 shadow-2xl"
       };
     }
 
@@ -58,8 +58,9 @@ const ComparisonResult = ({ isMatch, bothValid, leftLength, rightLength }: Compa
   return (
     <div className="flex justify-center">
       <div className={`
-        ${result.bgColor} ${result.borderColor} ${result.shadowColor} border-2 rounded-xl p-6 
-        backdrop-blur-sm transition-all duration-300 hover:scale-105 shadow-lg
+        ${result.bgColor} ${result.borderColor} ${result.shadowColor} 
+        ${result.borderColor ? 'border-2' : ''} 
+        rounded-xl p-6 backdrop-blur-sm transition-all duration-300 hover:scale-105 
         max-w-md w-full animate-fade-in
       `}>
         <div className="flex flex-col items-center text-center space-y-3">
