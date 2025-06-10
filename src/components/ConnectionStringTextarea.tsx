@@ -20,14 +20,14 @@ const ConnectionStringTextarea = ({
 }: ConnectionStringTextareaProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [isFocused, setIsFocused] = useState(false);
-  const [justCleared, setJustCleared] = useState(false);
+  const [skipNextAutoPaste, setSkipNextAutoPaste] = useState(false);
 
   const handleFocus = async () => {
     setIsFocused(true);
     
-    // Don't auto-paste if we just cleared
-    if (justCleared) {
-      setJustCleared(false);
+    // Don't auto-paste if we're skipping this time
+    if (skipNextAutoPaste) {
+      setSkipNextAutoPaste(false);
       return;
     }
     
@@ -57,7 +57,7 @@ const ConnectionStringTextarea = ({
   };
 
   const handleClear = () => {
-    setJustCleared(true);
+    setSkipNextAutoPaste(true);
     onChange('');
     textareaRef.current?.focus();
   };
