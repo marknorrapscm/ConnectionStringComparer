@@ -56,32 +56,32 @@ const ConnectionStringTextarea = ({
   const getValidationIcon = () => {
     if (isValid === null) return null;
     return isValid ? (
-      <Check className="text-green-500" size={20} />
+      <Check className="text-emerald-400" size={20} />
     ) : (
-      <X className="text-red-500" size={20} />
+      <X className="text-red-400" size={20} />
     );
   };
 
   const getBorderColor = () => {
-    if (isFocused) return 'border-primary ring-2 ring-primary/20';
-    if (isValid === true) return 'border-green-500';
-    if (isValid === false) return 'border-red-500';
-    return 'border-border';
+    if (isFocused) return 'border-blue-400 shadow-lg shadow-blue-400/25 ring-2 ring-blue-400/20';
+    if (isValid === true) return 'border-emerald-400 shadow-lg shadow-emerald-400/25';
+    if (isValid === false) return 'border-red-400 shadow-lg shadow-red-400/25';
+    return 'border-gray-600';
   };
 
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <label className="text-sm font-medium text-foreground">
+        <label className="text-sm font-medium text-white">
           {label}
         </label>
         <div className="flex items-center gap-2">
           {getValidationIcon()}
           {isValid && (
-            <span className="text-xs text-green-500">Valid connection string</span>
+            <span className="text-xs text-emerald-400">Valid connection string</span>
           )}
           {isValid === false && value && (
-            <span className="text-xs text-red-500">Invalid format</span>
+            <span className="text-xs text-red-400">Invalid format</span>
           )}
         </div>
       </div>
@@ -95,15 +95,15 @@ const ConnectionStringTextarea = ({
           onBlur={handleBlur}
           placeholder={placeholder}
           className={`
-            w-full h-32 px-4 py-3 bg-background border-2 text-foreground 
-            placeholder-muted-foreground rounded-lg transition-all duration-200 resize-none
+            w-full h-32 px-4 py-3 bg-gray-800 border-2 text-white 
+            placeholder-gray-400 rounded-lg transition-all duration-200 resize-none
             focus:outline-none ${getBorderColor()}
           `}
         />
         
         {!value && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="flex items-center gap-2 text-muted-foreground">
+            <div className="flex items-center gap-2 text-gray-400">
               <ClipboardPaste size={20} />
               <span className="text-sm">Click to auto-paste from clipboard</span>
             </div>
@@ -117,7 +117,7 @@ const ConnectionStringTextarea = ({
             variant="outline"
             size="sm"
             onClick={handlePaste}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 bg-gray-800 border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white hover:border-blue-400 hover:shadow-lg hover:shadow-blue-400/25 transition-all duration-200"
           >
             <ClipboardPaste size={16} />
             Paste
@@ -126,14 +126,14 @@ const ConnectionStringTextarea = ({
             variant="outline"
             size="sm"
             onClick={handleClear}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 bg-gray-800 border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white hover:border-red-400 hover:shadow-lg hover:shadow-red-400/25 transition-all duration-200"
             disabled={!value}
           >
             <Eraser size={16} />
             Clear
           </Button>
         </div>
-        <div className="text-xs text-muted-foreground">
+        <div className="text-xs text-gray-400">
           {value.length > 0 && `${value.length} characters`}
         </div>
       </div>
