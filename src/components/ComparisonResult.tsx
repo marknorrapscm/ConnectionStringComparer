@@ -12,7 +12,7 @@ const ComparisonResult = ({ isMatch, bothValid, leftLength, rightLength }: Compa
   const getResultContent = () => {
     if (leftLength === 0 || rightLength === 0) {
       return {
-        icon: <AlertTriangle className="text-yellow-400" size={32} />,
+        icon: <AlertTriangle className="text-yellow-500" size={32} />,
         title: "Waiting for both connection strings",
         subtitle: "Paste connection strings in both fields to compare",
         bgColor: "bg-yellow-500/10",
@@ -22,7 +22,7 @@ const ComparisonResult = ({ isMatch, bothValid, leftLength, rightLength }: Compa
 
     if (!bothValid) {
       return {
-        icon: <X className="text-red-400" size={32} />,
+        icon: <X className="text-red-500" size={32} />,
         title: "Invalid connection string format",
         subtitle: "Please check that both strings are valid connection strings",
         bgColor: "bg-red-500/10",
@@ -32,7 +32,7 @@ const ComparisonResult = ({ isMatch, bothValid, leftLength, rightLength }: Compa
 
     if (isMatch) {
       return {
-        icon: <Check className="text-green-400" size={32} />,
+        icon: <Check className="text-green-500" size={32} />,
         title: "Perfect Match! ✨",
         subtitle: "Both connection strings are identical and valid",
         bgColor: "bg-green-500/10",
@@ -41,7 +41,7 @@ const ComparisonResult = ({ isMatch, bothValid, leftLength, rightLength }: Compa
     }
 
     return {
-      icon: <X className="text-red-400" size={32} />,
+      icon: <X className="text-red-500" size={32} />,
       title: "No Match",
       subtitle: `Strings differ (${leftLength} vs ${rightLength} characters)`,
       bgColor: "bg-red-500/10",
@@ -62,10 +62,10 @@ const ComparisonResult = ({ isMatch, bothValid, leftLength, rightLength }: Compa
           <div className="animate-scale-in">
             {result.icon}
           </div>
-          <h3 className="text-xl font-semibold text-white">
+          <h3 className="text-xl font-semibold text-foreground">
             {result.title}
           </h3>
-          <p className="text-slate-300 text-sm">
+          <p className="text-muted-foreground text-sm">
             {result.subtitle}
           </p>
         </div>

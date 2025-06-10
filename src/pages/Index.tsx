@@ -26,16 +26,16 @@ const Index = () => {
   const showComparison = leftString.length > 0 || rightString.length > 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
+    <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold text-foreground mb-4">
             Connection String Comparator
           </h1>
-          <p className="text-slate-300 text-lg">
+          <p className="text-muted-foreground text-lg">
             Securely compare connection strings with instant validation
           </p>
-          <div className="flex items-center justify-center gap-2 mt-2 text-sm text-slate-400">
+          <div className="flex items-center justify-center gap-2 mt-2 text-sm text-muted-foreground">
             <AlertCircle size={16} />
             <span>Nothing is saved - all data stays in your browser</span>
           </div>
